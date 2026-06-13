@@ -21,8 +21,8 @@ importers:
         specifier: ^12.0.0
         version: 12.0.0
       remark-insert-headings:
-        specifier: ^0.0.0
-        version: 0.0.0
+        specifier: ^1.0.0
+        version: 1.0.0
       remark-toc:
         specifier: ^9.0.0
         version: 9.0.0
@@ -1018,8 +1018,8 @@ packages:
   remark-github@12.0.0:
     resolution: {integrity: sha512-ByefQKFN184LeiGRCabfl7zUJsdlMYWEhiLX1gpmQ11yFg6xSuOTW7LVCv0oc1x+YvUMJW23NU36sJX2RWGgvg==}
 
-  remark-insert-headings@0.0.0:
-    resolution: {integrity: sha512-7L5+oyjPkd9DWMyE5l0/AXyL2HwiOgJSU/U6IkakyJ/g4OjCYp6o9VCMHTnG2XsRuPXLrwKCt957XGWQhtODpg==}
+  remark-insert-headings@1.0.0:
+    resolution: {integrity: sha512-Ri3qoVI4HwM1GrhgMAIlvqELQOo/yAcr/KmPLrBFyXUs/wj44r03UbvPlbo6nhPr+34qCZOzFQpj8Z0YC3G1ZA==}
 
   remark-parse@11.0.0:
     resolution: {integrity: sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==}
@@ -2293,7 +2293,7 @@ snapshots:
       unist-util-visit: 5.1.0
       vfile: 6.0.3
 
-  remark-insert-headings@0.0.0:
+  remark-insert-headings@1.0.0:
     dependencies:
       unist-util-visit: 5.1.0
 

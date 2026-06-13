@@ -16,6 +16,7 @@ import { getMothersDay } from "../holiday/getMothersDay";
 import { getNewYearsDay } from "../holiday/getNewYearsDay";
 import { getNewYearsEve } from "../holiday/getNewYearsEve";
 import { getPresidentsDay } from "../holiday/getPresidentsDay";
+import { getStPatricksDay } from "../holiday/getStPatricksDay";
 import { getThanksgiving } from "../holiday/getThanksgiving";
 import { getValentinesDay } from "../holiday/getValentinesDay";
 import { getVeteransDay } from "../holiday/getVeteransDay";
@@ -128,6 +129,11 @@ export function getHolidays(year: number): Holidays {
     presidentsDay: {
       date: getPresidentsDay(year),
       bankHoliday: true,
+      federal: false,
+    },
+    stPatricksDay: {
+      date: getStPatricksDay(year),
+      bankHoliday: false,
       federal: false,
     },
     thanksgiving: {

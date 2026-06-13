@@ -33,6 +33,7 @@ The API will be the same as the original project, with the primary focus being b
     * [getNewYearsDay()](#getnewyearsday)
     * [getNewYearsEve()](#getnewyearseve)
     * [getPresidentsDay()](#getpresidentsday)
+    * [getStPatricksDay()](#getstpatricksday)
     * [getThanksgiving()](#getthanksgiving)
     * [getValentinesDay()](#getvalentinesday)
     * [getVeteransDay()](#getveteransday)
@@ -82,6 +83,7 @@ type Holiday =
   | "newYearsDay"
   | "newYearsEve"
   | "presidentsDay"
+  | "stPatricksDay"
   | "thanksgiving"
   | "valentinesDay"
   | "veteransDay";
@@ -103,7 +105,7 @@ type HolidayList = Record<string, {
 }>;
 ```
 
-Defined in: [types/index.ts:35](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L35)
+Defined in: [types/index.ts:36](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L36)
 
 Mapping of holiday names to their computed date values.
 
@@ -118,7 +120,7 @@ only the date is relevant.
 type Holidays = { [K in Holiday]: { bankHoliday: boolean; date: Date; federal: boolean } };
 ```
 
-Defined in: [types/index.ts:45](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L45)
+Defined in: [types/index.ts:46](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L46)
 
 Complete set of holidays returned by [getHolidays](#getholidays).
 
@@ -662,6 +664,39 @@ In the United States, Presidents Day is observed on the third Monday of February
 
 ***
 
+#### getStPatricksDay()
+
+```ts
+function getStPatricksDay(year): Date;
+```
+
+Defined in: [holiday/getStPatricksDay.ts:17](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getStPatricksDay.ts#L17)
+
+Returns the date of St. Patrick's Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain St. Patrick's Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing March 17 of the specified year.
+
+##### Remarks
+
+St. Patrick's Day is observed annually on March 17.
+
+It is not a U.S. federal holiday, but is widely celebrated culturally,
+particularly in the United States and Ireland.
+
+The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
+
+***
+
 #### getThanksgiving()
 
 ```ts
@@ -808,7 +843,7 @@ Only holidays marked as federal holidays are included in the returned list.
 function getHolidays(year): Holidays;
 ```
 
-Defined in: [holidays/getHolidays.ts:41](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L41)
+Defined in: [holidays/getHolidays.ts:42](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L42)
 
 Returns the complete set of supported holidays for the specified year.
 

@@ -16,6 +16,7 @@ export { getMothersDay } from "./getMothersDay";
 export { getNewYearsDay } from "./getNewYearsDay";
 export { getNewYearsEve } from "./getNewYearsEve";
 export { getPresidentsDay } from "./getPresidentsDay";
+export { getStPatricksDay } from "./getStPatricksDay";
 export { getThanksgiving } from "./getThanksgiving";
 export { getValentinesDay } from "./getValentinesDay";
 export { getVeteransDay } from "./getVeteransDay";

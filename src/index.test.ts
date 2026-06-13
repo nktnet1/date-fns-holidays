@@ -24,6 +24,7 @@ import {
   getNewYearsEve,
   getObservedHolidays,
   getPresidentsDay,
+  getStPatricksDay,
   getThanksgiving,
   getValentinesDay,
   getVeteransDay,
@@ -345,6 +346,15 @@ describe("getGoodFriday", () => {
   });
 });
 
+describe("getStPatricksDay", () => {
+  it("returns correct date", () => {
+    expect(format(getStPatricksDay(2020), dateFormat)).toEqual("03-17-2020");
+    expect(format(getStPatricksDay(2021), dateFormat)).toEqual("03-17-2021");
+    expect(format(getStPatricksDay(2022), dateFormat)).toEqual("03-17-2022");
+    expect(format(getStPatricksDay(2023), dateFormat)).toEqual("03-17-2023");
+  });
+});
+
 describe("getHolidays", () => {
   it("returns all expected holiday keys", () => {
     const holidays = getHolidays(2024);
@@ -368,6 +378,7 @@ describe("getHolidays", () => {
       "newYearsDay",
       "newYearsEve",
       "presidentsDay",
+      "stPatricksDay",
       "thanksgiving",
       "valentinesDay",
       "veteransDay",

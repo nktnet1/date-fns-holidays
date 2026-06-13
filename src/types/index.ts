@@ -22,6 +22,7 @@ export type Holiday =
   | "newYearsDay"
   | "newYearsEve"
   | "presidentsDay"
+  | "stPatricksDay"
   | "thanksgiving"
   | "valentinesDay"
   | "veteransDay";

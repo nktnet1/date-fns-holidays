@@ -4,6 +4,8 @@ import { filterHolidays } from "../utils/filters";
 /**
  * Returns all bank holidays for the specified year.
  *
+ * @category Holidays
+ *
  * @remarks
  * Only holidays marked as bank holidays are included in the returned list.
  *

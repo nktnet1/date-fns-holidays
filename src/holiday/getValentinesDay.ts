@@ -1,6 +1,8 @@
 /**
  * Returns the date of Valentine's Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Valentine's Day is observed annually on February 14.
  *

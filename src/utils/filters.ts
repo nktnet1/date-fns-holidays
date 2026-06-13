@@ -1,8 +1,10 @@
-import { getHolidays } from "../holidays";
+import { getHolidays } from "../holiday";
 import type { Holiday, HolidayList, Holidays } from "../types";
 
 /**
  * Filters the full holiday set for a given year using a predicate.
+ *
+ * @category Utility
  *
  * @remarks
  * This function evaluates the complete {@link Holidays} object returned by

@@ -5,6 +5,8 @@ import { getHolidays } from "./getHolidays";
 /**
  * Returns the observed federal holidays for the specified year.
  *
+ * @category Holidays
+ *
  * @remarks
  * This function adjusts federal holidays that fall on weekends to their
  * observed dates:

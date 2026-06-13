@@ -1,6 +1,8 @@
 /**
  * Returns the date of Independence Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Independence Day in the United States is observed annually on July 4.
  *

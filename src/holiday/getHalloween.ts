@@ -1,6 +1,8 @@
 /**
  * Returns the date of Halloween for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Halloween is observed annually on October 31.
  *

@@ -8,6 +8,7 @@
   "readme": "assets/BASE.md",
   "enumMembersFormat": "table",
   "indexFormat": "table",
+  "categorizeByGroup": true,
   "mergeReadme": true,
   "parametersFormat": "table",
   "router": "module",
@@ -19,7 +20,7 @@
       { "repository": "https://github.com/typedoc2md/typedoc-plugin-markdown" }
     ],
     ["remark-insert-headings", { "text": "Table of Contents" }],
-    ["remark-toc", { "maxDepth": 3 }]
+    ["remark-toc", { "maxDepth": 4 }]
   ],
   "externalSymbolLinkMappings": {
     "typescript": {

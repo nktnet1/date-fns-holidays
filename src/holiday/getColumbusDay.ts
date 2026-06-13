@@ -4,6 +4,8 @@ import { getFirstOccurrence } from "../utils/getters";
 /**
  * Calculates the date of Columbus Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States, Columbus Day is observed on the second Monday
  * of October.

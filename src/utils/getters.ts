@@ -8,6 +8,8 @@ import {
 /**
  * Returns the first occurrence of a given weekday within the month of the provided date.
  *
+ * @category Utility
+ *
  * @remarks
  * This works by normalizing the date to the first day of its month, then finding the
  * next occurrence of the specified weekday.
@@ -22,6 +24,8 @@ export function getFirstOccurrence(date: Date, dayOfWeekIndex: number) {
 
 /**
  * Returns the next occurrence of a given weekday relative to a date.
+ *
+ * @category Utility
  *
  * @remarks
  * If the provided date already matches the target weekday, it is returned unchanged.
@@ -47,6 +51,8 @@ export function getNextOccurrence(date: Date, dayOfWeekIndex: number) {
 /**
  * Returns the previous occurrence of a given weekday relative to a date.
  *
+ * @category Utility
+ *
  * @remarks
  * If the provided date already matches the target weekday, it is returned unchanged.
  * Otherwise, the function moves backward to the previous matching weekday.
@@ -70,6 +76,8 @@ export function getPrevOccurrence(date: Date, dayOfWeekIndex: number) {
 
 /**
  * Returns the last occurrence of a given weekday within the month of the provided date.
+ *
+ * @category Utility
  *
  * @remarks
  * This is computed by starting at the last day of the month and walking backwards

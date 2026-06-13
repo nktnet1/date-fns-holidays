@@ -1,25 +1,27 @@
+import { getChristmas } from "../holiday/getChristmas";
+import { getColumbusDay } from "../holiday/getColumbusDay";
+import { getEaster } from "../holiday/getEaster";
+import { getFathersDay } from "../holiday/getFathersDay";
+import { getGoodFriday } from "../holiday/getGoodFriday";
+import { getHalloween } from "../holiday/getHalloween";
+import { getIndependenceDay } from "../holiday/getIndependenceDay";
+import { getJuneteenth } from "../holiday/getJuneteenth";
+import { getLaborDay } from "../holiday/getLaborDay";
+import { getMartinLutherKingJrDay } from "../holiday/getMartinLutherKingJrDay";
+import { getMemorialDay } from "../holiday/getMemorialDay";
+import { getMothersDay } from "../holiday/getMothersDay";
+import { getNewYearsDay } from "../holiday/getNewYearsDay";
+import { getNewYearsEve } from "../holiday/getNewYearsEve";
+import { getPresidentsDay } from "../holiday/getPresidentsDay";
+import { getThanksgiving } from "../holiday/getThanksgiving";
+import { getValentinesDay } from "../holiday/getValentinesDay";
+import { getVeteransDay } from "../holiday/getVeteransDay";
 import type { Holidays } from "../types";
-import { getChristmas } from "./getChristmas";
-import { getColumbusDay } from "./getColumbusDay";
-import { getEaster } from "./getEaster";
-import { getFathersDay } from "./getFathersDay";
-import { getGoodFriday } from "./getGoodFriday";
-import { getHalloween } from "./getHalloween";
-import { getIndependenceDay } from "./getIndependenceDay";
-import { getJuneteenth } from "./getJuneteenth";
-import { getLaborDay } from "./getLaborDay";
-import { getMartinLutherKingJrDay } from "./getMartinLutherKingJrDay";
-import { getMemorialDay } from "./getMemorialDay";
-import { getMothersDay } from "./getMothersDay";
-import { getNewYearsDay } from "./getNewYearsDay";
-import { getNewYearsEve } from "./getNewYearsEve";
-import { getPresidentsDay } from "./getPresidentsDay";
-import { getThanksgiving } from "./getThanksgiving";
-import { getValentinesDay } from "./getValentinesDay";
-import { getVeteransDay } from "./getVeteransDay";
 
 /**
  * Returns the complete set of supported holidays for the specified year.
+ *
+ * @category Holidays
  *
  * @remarks
  * Each holiday entry contains its calculated date together with metadata

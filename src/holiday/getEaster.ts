@@ -2,6 +2,8 @@
  * Calculates the date of Easter Sunday for a given year using the
  * Gregorian computus algorithm.
  *
+ * @category Holiday
+ *
  * @remarks
  * This implementation is valid for years from 325 AD onward, the year of the
  * First Council of Nicaea, which established the basis for calculating Easter.

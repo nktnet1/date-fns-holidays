@@ -7,6 +7,8 @@ import type { HolidayList } from "../types";
 /**
  * Determines whether a given {@link Date} exists within a {@link HolidayList} for its year.
  *
+ * @category Utility
+ *
  * @remarks
  * The function resolves the appropriate holiday list for the year of the provided
  * {@link Date}, then checks whether any holiday in that list matches the given date
@@ -30,6 +32,8 @@ export function isInHolidayList(
 /**
  * Checks whether a {@link Date} is any recognized holiday.
  *
+ * @category Utility
+ *
  * @param date - The {@link Date} to evaluate.
  * @returns `true` if the {@link Date} is a holiday.
  */
@@ -40,6 +44,8 @@ export function isHoliday(date: Date): boolean {
 /**
  * Checks whether a {@link Date} is a federal holiday.
  *
+ * @category Utility
+ *
  * @param date - The {@link Date} to evaluate.
  * @returns `true` if the {@link Date} is a federal holiday.
  */
@@ -49,6 +55,8 @@ export function isFederalHoliday(date: Date): boolean {
 
 /**
  * Checks whether a {@link Date} is a bank holiday.
+ *
+ * @category Utility
  *
  * @param date - The {@link Date} to evaluate.
  * @returns `true` if the {@link Date} is a bank holiday.

@@ -3,6 +3,8 @@ import { getFirstOccurrence } from "../utils/getters";
 /**
  * Returns the date of Labor Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States, Labor Day is observed on the first Monday of September.
  *

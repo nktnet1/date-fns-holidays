@@ -4,6 +4,8 @@ import { getFirstOccurrence } from "../utils/getters";
 /**
  * Returns the date of Presidents Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States, Presidents Day is observed on the third Monday of February.
  *

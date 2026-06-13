@@ -4,6 +4,8 @@ import { filterHolidays } from "../utils/filters";
 /**
  * Returns all federal holidays for the specified year.
  *
+ * @category Holidays
+ *
  * @remarks
  * Only holidays marked as federal holidays are included in the returned list.
  *

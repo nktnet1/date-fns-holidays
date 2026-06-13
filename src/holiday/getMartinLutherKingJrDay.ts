@@ -4,6 +4,8 @@ import { getFirstOccurrence } from "../utils/getters";
 /**
  * Returns the date of Martin Luther King Jr. Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States, Martin Luther King Jr. Day is observed on the third Monday of January.
  *

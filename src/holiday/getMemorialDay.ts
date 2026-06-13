@@ -3,6 +3,8 @@ import { getLastOfMonth } from "../utils/getters";
 /**
  * Returns the date of Memorial Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States, Memorial Day is observed on the last Monday of May.
  *

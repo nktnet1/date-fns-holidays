@@ -1,6 +1,8 @@
 /**
  * Returns the date of Veterans Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Veterans Day is observed annually on November 11 in the United States.
  *

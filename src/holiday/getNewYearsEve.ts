@@ -3,6 +3,8 @@ import { lastDayOfMonth } from "date-fns";
 /**
  * Returns the date of New Year's Eve for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * New Year's Eve is the last day of the year, observed on December 31.
  *

@@ -4,6 +4,8 @@ import { getFirstOccurrence } from "../utils/getters";
 /**
  * Returns the date of Thanksgiving for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States, Thanksgiving is observed on the fourth Thursday of November.
  *

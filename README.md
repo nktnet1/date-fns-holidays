@@ -14,37 +14,40 @@ The API will be the same as the original project, with the primary focus being b
   * [HolidayList](#holidaylist)
   * [Holidays](#holidays)
 * [Functions](#functions)
-  * [filterHolidays()](#filterholidays)
-  * [getBankHolidays()](#getbankholidays)
-  * [getChristmas()](#getchristmas)
-  * [getColumbusDay()](#getcolumbusday)
-  * [getEaster()](#geteaster)
-  * [getFathersDay()](#getfathersday)
-  * [getFederalHolidays()](#getfederalholidays)
-  * [getFirstOccurrence()](#getfirstoccurrence)
-  * [getGoodFriday()](#getgoodfriday)
-  * [getHalloween()](#gethalloween)
-  * [getHolidays()](#getholidays)
-  * [getIndependenceDay()](#getindependenceday)
-  * [getJuneteenth()](#getjuneteenth)
-  * [getLaborDay()](#getlaborday)
-  * [getLastOfMonth()](#getlastofmonth)
-  * [getMartinLutherKingJrDay()](#getmartinlutherkingjrday)
-  * [getMemorialDay()](#getmemorialday)
-  * [getMothersDay()](#getmothersday)
-  * [getNewYearsDay()](#getnewyearsday)
-  * [getNewYearsEve()](#getnewyearseve)
-  * [getNextOccurrence()](#getnextoccurrence)
-  * [getObservedHolidays()](#getobservedholidays)
-  * [getPresidentsDay()](#getpresidentsday)
-  * [getPrevOccurrence()](#getprevoccurrence)
-  * [getThanksgiving()](#getthanksgiving)
-  * [getValentinesDay()](#getvalentinesday)
-  * [getVeteransDay()](#getveteransday)
-  * [isBankHoliday()](#isbankholiday)
-  * [isFederalHoliday()](#isfederalholiday)
-  * [isHoliday()](#isholiday)
-  * [isInHolidayList()](#isinholidaylist)
+  * [Holiday](#holiday-1)
+    * [getChristmas()](#getchristmas)
+    * [getColumbusDay()](#getcolumbusday)
+    * [getEaster()](#geteaster)
+    * [getFathersDay()](#getfathersday)
+    * [getGoodFriday()](#getgoodfriday)
+    * [getHalloween()](#gethalloween)
+    * [getIndependenceDay()](#getindependenceday)
+    * [getJuneteenth()](#getjuneteenth)
+    * [getLaborDay()](#getlaborday)
+    * [getMartinLutherKingJrDay()](#getmartinlutherkingjrday)
+    * [getMemorialDay()](#getmemorialday)
+    * [getMothersDay()](#getmothersday)
+    * [getNewYearsDay()](#getnewyearsday)
+    * [getNewYearsEve()](#getnewyearseve)
+    * [getPresidentsDay()](#getpresidentsday)
+    * [getThanksgiving()](#getthanksgiving)
+    * [getValentinesDay()](#getvalentinesday)
+    * [getVeteransDay()](#getveteransday)
+  * [Holidays](#holidays-1)
+    * [getBankHolidays()](#getbankholidays)
+    * [getFederalHolidays()](#getfederalholidays)
+    * [getHolidays()](#getholidays)
+    * [getObservedHolidays()](#getobservedholidays)
+  * [Utility](#utility)
+    * [filterHolidays()](#filterholidays)
+    * [getFirstOccurrence()](#getfirstoccurrence)
+    * [getLastOfMonth()](#getlastofmonth)
+    * [getNextOccurrence()](#getnextoccurrence)
+    * [getPrevOccurrence()](#getprevoccurrence)
+    * [isBankHoliday()](#isbankholiday)
+    * [isFederalHoliday()](#isfederalholiday)
+    * [isHoliday()](#isholiday)
+    * [isInHolidayList()](#isinholidaylist)
 
 ## Install
 
@@ -78,11 +81,9 @@ type Holiday =
   | "juneteenth";
 ```
 
-Defined in: [types/index.ts:7](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L7)
+Defined in: [types/index.ts:6](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L6)
 
 Union of supported holiday identifiers used throughout the library.
-
-#### Remarks
 
 Each value corresponds to a key in [Holidays](#holidays).
 
@@ -96,11 +97,9 @@ type HolidayList = Record<string, {
 }>;
 ```
 
-Defined in: [types/index.ts:34](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L34)
+Defined in: [types/index.ts:32](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L32)
 
 Mapping of holiday names to their computed date values.
-
-#### Remarks
 
 This structure is used for filtered or derived holiday collections where
 only the date is relevant.
@@ -113,11 +112,9 @@ only the date is relevant.
 type Holidays = { [K in Holiday]: { bankHoliday: boolean; date: Date; federal: boolean } };
 ```
 
-Defined in: [types/index.ts:45](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L45)
+Defined in: [types/index.ts:42](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L42)
 
 Complete set of holidays returned by [getHolidays](#getholidays).
-
-#### Remarks
 
 Each entry includes:
 
@@ -127,91 +124,31 @@ Each entry includes:
 
 ## Functions
 
-### filterHolidays()
+### Holiday
 
-```ts
-function filterHolidays(year, predicate): HolidayList;
-```
-
-Defined in: [utils/filters.ts:19](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/filters.ts#L19)
-
-Filters the full holiday set for a given year using a predicate.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to retrieve and filter holidays. |
-| `predicate` | (`holiday`) => `boolean` | Function applied to each holiday entry to determine inclusion. |
-
-#### Returns
-
-[`HolidayList`](#holidaylist)
-
-A [HolidayList](#holidaylist) containing only matching holidays.
-
-#### Remarks
-
-This function evaluates the complete [Holidays](#holidays) object returned by
-[getHolidays](#getholidays) and constructs a [HolidayList](#holidaylist) containing only
-entries that satisfy the provided predicate.
-
-The resulting object preserves the original holiday keys but reduces each
-entry to its date value.
-
-***
-
-### getBankHolidays()
-
-```ts
-function getBankHolidays(year): HolidayList;
-```
-
-Defined in: [holidays/getBankHolidays.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getBankHolidays.ts#L13)
-
-Returns all bank holidays for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to retrieve bank holidays. |
-
-#### Returns
-
-[`HolidayList`](#holidaylist)
-
-A [HolidayList](#holidaylist) of bank holidays occurring in the specified year.
-
-#### Remarks
-
-Only holidays marked as bank holidays are included in the returned list.
-
-***
-
-### getChristmas()
+#### getChristmas()
 
 ```ts
 function getChristmas(year): Date;
 ```
 
-Defined in: [holidays/getChristmas.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getChristmas.ts#L12)
+Defined in: [holiday/getChristmas.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmas.ts#L14)
 
 Returns the date of Christmas Day for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to obtain Christmas Day. |
 
-#### Returns
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 25 of the specified year.
 
-#### Remarks
+##### Remarks
 
 Christmas Day is observed annually on December 25.
 
@@ -219,59 +156,59 @@ The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ***
 
-### getColumbusDay()
+#### getColumbusDay()
 
 ```ts
 function getColumbusDay(year): Date;
 ```
 
-Defined in: [holidays/getColumbusDay.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getColumbusDay.ts#L14)
+Defined in: [holiday/getColumbusDay.ts:16](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getColumbusDay.ts#L16)
 
 Calculates the date of Columbus Day for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to calculate Columbus Day. |
 
-#### Returns
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the second Monday in October.
 
-#### Remarks
+##### Remarks
 
 In the United States, Columbus Day is observed on the second Monday
 of October.
 
 ***
 
-### getEaster()
+#### getEaster()
 
 ```ts
 function getEaster(year): Date;
 ```
 
-Defined in: [holidays/getEaster.ts:16](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getEaster.ts#L16)
+Defined in: [holiday/getEaster.ts:18](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getEaster.ts#L18)
 
 Calculates the date of Easter Sunday for a given year using the
 Gregorian computus algorithm.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to calculate Easter Sunday. |
 
-#### Returns
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Easter Sunday in the specified year.
 
-#### Remarks
+##### Remarks
 
 This implementation is valid for years from 325 AD onward, the year of the
 First Council of Nicaea, which established the basis for calculating Easter.
@@ -279,179 +216,514 @@ First Council of Nicaea, which established the basis for calculating Easter.
 The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone and represents
 Easter Sunday for the specified year.
 
-#### Throws
+##### Throws
 
 Thrown if the year is earlier than 325 AD.
 
 ***
 
-### getFathersDay()
+#### getFathersDay()
 
 ```ts
 function getFathersDay(year): Date;
 ```
 
-Defined in: [holidays/getFathersDay.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getFathersDay.ts#L14)
+Defined in: [holiday/getFathersDay.ts:16](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getFathersDay.ts#L16)
 
 Calculates the date of Father's Day for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to calculate Father's Day. |
 
-#### Returns
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the third Sunday in June.
 
-#### Remarks
+##### Remarks
 
 In the United States and many other countries, Father's Day is observed on
 the third Sunday of June.
 
 ***
 
-### getFederalHolidays()
-
-```ts
-function getFederalHolidays(year): HolidayList;
-```
-
-Defined in: [holidays/getFederalHolidays.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getFederalHolidays.ts#L13)
-
-Returns all federal holidays for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to retrieve federal holidays. |
-
-#### Returns
-
-[`HolidayList`](#holidaylist)
-
-A [HolidayList](#holidaylist) of federal holidays occurring in the specified year.
-
-#### Remarks
-
-Only holidays marked as federal holidays are included in the returned list.
-
-***
-
-### getFirstOccurrence()
-
-```ts
-function getFirstOccurrence(date, dayOfWeekIndex): Date;
-```
-
-Defined in: [utils/getters.ts:19](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L19)
-
-Returns the first occurrence of a given weekday within the month of the provided date.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Any date within the target month. |
-| `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the first occurrence of the weekday in that month.
-
-#### Remarks
-
-This works by normalizing the date to the first day of its month, then finding the
-next occurrence of the specified weekday.
-
-***
-
-### getGoodFriday()
+#### getGoodFriday()
 
 ```ts
 function getGoodFriday(year): Date;
 ```
 
-Defined in: [holidays/getGoodFriday.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getGoodFriday.ts#L14)
+Defined in: [holiday/getGoodFriday.ts:16](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getGoodFriday.ts#L16)
 
 Calculates the date of Good Friday for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to calculate Good Friday. |
 
-#### Returns
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Good Friday in the specified year.
 
-#### Remarks
+##### Remarks
 
 Good Friday is observed two days before Easter Sunday and commemorates the
 crucifixion of Jesus Christ in Christian tradition.
 
 ***
 
-### getHalloween()
+#### getHalloween()
 
 ```ts
 function getHalloween(year): Date;
 ```
 
-Defined in: [holidays/getHalloween.ts:10](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHalloween.ts#L10)
+Defined in: [holiday/getHalloween.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getHalloween.ts#L12)
 
 Returns the date of Halloween for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to obtain Halloween. |
 
-#### Returns
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing October 31 of the specified year.
 
-#### Remarks
+##### Remarks
 
 Halloween is observed annually on October 31.
 
 ***
 
-### getHolidays()
+#### getIndependenceDay()
+
+```ts
+function getIndependenceDay(year): Date;
+```
+
+Defined in: [holiday/getIndependenceDay.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getIndependenceDay.ts#L12)
+
+Returns the date of Independence Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Independence Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing July 4 of the specified year.
+
+##### Remarks
+
+Independence Day in the United States is observed annually on July 4.
+
+***
+
+#### getJuneteenth()
+
+```ts
+function getJuneteenth(year): Date;
+```
+
+Defined in: [holiday/getJuneteenth.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getJuneteenth.ts#L13)
+
+Returns the date of Juneteenth for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Juneteenth. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing June 19 of the specified year.
+
+##### Remarks
+
+Juneteenth National Independence Day is observed in the United States on June 19.
+It became a federal holiday in 2021.
+
+***
+
+#### getLaborDay()
+
+```ts
+function getLaborDay(year): Date;
+```
+
+Defined in: [holiday/getLaborDay.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getLaborDay.ts#L14)
+
+Returns the date of Labor Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to calculate Labor Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Labor Day in the specified year.
+
+##### Remarks
+
+In the United States, Labor Day is observed on the first Monday of September.
+
+***
+
+#### getMartinLutherKingJrDay()
+
+```ts
+function getMartinLutherKingJrDay(year): Date;
+```
+
+Defined in: [holiday/getMartinLutherKingJrDay.ts:15](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getMartinLutherKingJrDay.ts#L15)
+
+Returns the date of Martin Luther King Jr. Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to calculate the holiday. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Martin Luther King Jr. Day in the specified year.
+
+##### Remarks
+
+In the United States, Martin Luther King Jr. Day is observed on the third Monday of January.
+
+***
+
+#### getMemorialDay()
+
+```ts
+function getMemorialDay(year): Date;
+```
+
+Defined in: [holiday/getMemorialDay.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getMemorialDay.ts#L14)
+
+Returns the date of Memorial Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to calculate Memorial Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Memorial Day in the specified year.
+
+##### Remarks
+
+In the United States, Memorial Day is observed on the last Monday of May.
+
+***
+
+#### getMothersDay()
+
+```ts
+function getMothersDay(year): Date;
+```
+
+Defined in: [holiday/getMothersDay.ts:15](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getMothersDay.ts#L15)
+
+Returns the date of Mother's Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to calculate Mother's Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Mother's Day in the specified year.
+
+##### Remarks
+
+In the United States, Mother's Day is observed on the second Sunday of May.
+
+***
+
+#### getNewYearsDay()
+
+```ts
+function getNewYearsDay(year): Date;
+```
+
+Defined in: [holiday/getNewYearsDay.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getNewYearsDay.ts#L12)
+
+Returns the date of New Year's Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain New Year's Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing January 1 of the specified year.
+
+##### Remarks
+
+New Year's Day is observed annually on January 1.
+
+***
+
+#### getNewYearsEve()
+
+```ts
+function getNewYearsEve(year): Date;
+```
+
+Defined in: [holiday/getNewYearsEve.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getNewYearsEve.ts#L14)
+
+Returns the date of New Year's Eve for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain New Year's Eve. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 31 of the specified year.
+
+##### Remarks
+
+New Year's Eve is the last day of the year, observed on December 31.
+
+***
+
+#### getPresidentsDay()
+
+```ts
+function getPresidentsDay(year): Date;
+```
+
+Defined in: [holiday/getPresidentsDay.ts:15](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getPresidentsDay.ts#L15)
+
+Returns the date of Presidents Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to calculate Presidents Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Presidents Day in the specified year.
+
+##### Remarks
+
+In the United States, Presidents Day is observed on the third Monday of February.
+
+***
+
+#### getThanksgiving()
+
+```ts
+function getThanksgiving(year): Date;
+```
+
+Defined in: [holiday/getThanksgiving.ts:15](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getThanksgiving.ts#L15)
+
+Returns the date of Thanksgiving for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to calculate Thanksgiving. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Thanksgiving in the specified year.
+
+##### Remarks
+
+In the United States, Thanksgiving is observed on the fourth Thursday of November.
+
+***
+
+#### getValentinesDay()
+
+```ts
+function getValentinesDay(year): Date;
+```
+
+Defined in: [holiday/getValentinesDay.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getValentinesDay.ts#L12)
+
+Returns the date of Valentine's Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Valentine's Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing February 14 of the specified year.
+
+##### Remarks
+
+Valentine's Day is observed annually on February 14.
+
+***
+
+#### getVeteransDay()
+
+```ts
+function getVeteransDay(year): Date;
+```
+
+Defined in: [holiday/getVeteransDay.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getVeteransDay.ts#L12)
+
+Returns the date of Veterans Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Veterans Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing November 11 of the specified year.
+
+##### Remarks
+
+Veterans Day is observed annually on November 11 in the United States.
+
+### Holidays
+
+#### getBankHolidays()
+
+```ts
+function getBankHolidays(year): HolidayList;
+```
+
+Defined in: [holidays/getBankHolidays.ts:15](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getBankHolidays.ts#L15)
+
+Returns all bank holidays for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to retrieve bank holidays. |
+
+##### Returns
+
+[`HolidayList`](#holidaylist)
+
+A [HolidayList](#holidaylist) of bank holidays occurring in the specified year.
+
+##### Remarks
+
+Only holidays marked as bank holidays are included in the returned list.
+
+***
+
+#### getFederalHolidays()
+
+```ts
+function getFederalHolidays(year): HolidayList;
+```
+
+Defined in: [holidays/getFederalHolidays.ts:15](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getFederalHolidays.ts#L15)
+
+Returns all federal holidays for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to retrieve federal holidays. |
+
+##### Returns
+
+[`HolidayList`](#holidaylist)
+
+A [HolidayList](#holidaylist) of federal holidays occurring in the specified year.
+
+##### Remarks
+
+Only holidays marked as federal holidays are included in the returned list.
+
+***
+
+#### getHolidays()
 
 ```ts
 function getHolidays(year): Holidays;
 ```
 
-Defined in: [holidays/getHolidays.ts:36](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L36)
+Defined in: [holidays/getHolidays.ts:38](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L38)
 
 Returns the complete set of supported holidays for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to generate holiday information. |
 
-#### Returns
+##### Returns
 
 [`Holidays`](#holidays)
 
 An object containing all supported holidays and their metadata.
 
-#### Remarks
+##### Remarks
 
 Each holiday entry contains its calculated date together with metadata
 indicating whether it is recognized as a federal holiday and/or a bank
@@ -463,314 +735,29 @@ by this library.
 
 ***
 
-### getIndependenceDay()
-
-```ts
-function getIndependenceDay(year): Date;
-```
-
-Defined in: [holidays/getIndependenceDay.ts:10](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getIndependenceDay.ts#L10)
-
-Returns the date of Independence Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to obtain Independence Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing July 4 of the specified year.
-
-#### Remarks
-
-Independence Day in the United States is observed annually on July 4.
-
-***
-
-### getJuneteenth()
-
-```ts
-function getJuneteenth(year): Date;
-```
-
-Defined in: [holidays/getJuneteenth.ts:11](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getJuneteenth.ts#L11)
-
-Returns the date of Juneteenth for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to obtain Juneteenth. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing June 19 of the specified year.
-
-#### Remarks
-
-Juneteenth National Independence Day is observed in the United States on June 19.
-It became a federal holiday in 2021.
-
-***
-
-### getLaborDay()
-
-```ts
-function getLaborDay(year): Date;
-```
-
-Defined in: [holidays/getLaborDay.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getLaborDay.ts#L12)
-
-Returns the date of Labor Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to calculate Labor Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Labor Day in the specified year.
-
-#### Remarks
-
-In the United States, Labor Day is observed on the first Monday of September.
-
-***
-
-### getLastOfMonth()
-
-```ts
-function getLastOfMonth(date, dayOfWeekIndex): Date;
-```
-
-Defined in: [utils/getters.ts:82](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L82)
-
-Returns the last occurrence of a given weekday within the month of the provided date.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Any date within the target month. |
-| `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the last occurrence of the weekday in the month.
-
-#### Remarks
-
-This is computed by starting at the last day of the month and walking backwards
-to the requested weekday.
-
-***
-
-### getMartinLutherKingJrDay()
-
-```ts
-function getMartinLutherKingJrDay(year): Date;
-```
-
-Defined in: [holidays/getMartinLutherKingJrDay.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getMartinLutherKingJrDay.ts#L13)
-
-Returns the date of Martin Luther King Jr. Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to calculate the holiday. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Martin Luther King Jr. Day in the specified year.
-
-#### Remarks
-
-In the United States, Martin Luther King Jr. Day is observed on the third Monday of January.
-
-***
-
-### getMemorialDay()
-
-```ts
-function getMemorialDay(year): Date;
-```
-
-Defined in: [holidays/getMemorialDay.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getMemorialDay.ts#L12)
-
-Returns the date of Memorial Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to calculate Memorial Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Memorial Day in the specified year.
-
-#### Remarks
-
-In the United States, Memorial Day is observed on the last Monday of May.
-
-***
-
-### getMothersDay()
-
-```ts
-function getMothersDay(year): Date;
-```
-
-Defined in: [holidays/getMothersDay.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getMothersDay.ts#L13)
-
-Returns the date of Mother's Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to calculate Mother's Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Mother's Day in the specified year.
-
-#### Remarks
-
-In the United States, Mother's Day is observed on the second Sunday of May.
-
-***
-
-### getNewYearsDay()
-
-```ts
-function getNewYearsDay(year): Date;
-```
-
-Defined in: [holidays/getNewYearsDay.ts:10](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getNewYearsDay.ts#L10)
-
-Returns the date of New Year's Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to obtain New Year's Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing January 1 of the specified year.
-
-#### Remarks
-
-New Year's Day is observed annually on January 1.
-
-***
-
-### getNewYearsEve()
-
-```ts
-function getNewYearsEve(year): Date;
-```
-
-Defined in: [holidays/getNewYearsEve.ts:12](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getNewYearsEve.ts#L12)
-
-Returns the date of New Year's Eve for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to obtain New Year's Eve. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 31 of the specified year.
-
-#### Remarks
-
-New Year's Eve is the last day of the year, observed on December 31.
-
-***
-
-### getNextOccurrence()
-
-```ts
-function getNextOccurrence(date, dayOfWeekIndex): Date;
-```
-
-Defined in: [utils/getters.ts:34](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L34)
-
-Returns the next occurrence of a given weekday relative to a date.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Starting date. |
-| `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the next occurrence of the weekday.
-
-#### Remarks
-
-If the provided date already matches the target weekday, it is returned unchanged.
-Otherwise, the function advances forward to the next matching weekday.
-
-***
-
-### getObservedHolidays()
+#### getObservedHolidays()
 
 ```ts
 function getObservedHolidays(year): HolidayList;
 ```
 
-Defined in: [holidays/getObservedHolidays.ts:19](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getObservedHolidays.ts#L19)
+Defined in: [holidays/getObservedHolidays.ts:21](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getObservedHolidays.ts#L21)
 
 Returns the observed federal holidays for the specified year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `year` | `number` | The year for which to calculate observed holidays. |
 
-#### Returns
+##### Returns
 
 [`HolidayList`](#holidaylist)
 
 A [HolidayList](#holidaylist) containing observed federal holiday dates.
 
-#### Remarks
+##### Remarks
 
 This function adjusts federal holidays that fall on weekends to their
 observed dates:
@@ -780,167 +767,179 @@ observed dates:
 
 Only holidays marked as `federal: true` are included in the result.
 
-***
+### Utility
 
-### getPresidentsDay()
+#### filterHolidays()
 
 ```ts
-function getPresidentsDay(year): Date;
+function filterHolidays(year, predicate): HolidayList;
 ```
 
-Defined in: [holidays/getPresidentsDay.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getPresidentsDay.ts#L13)
+Defined in: [utils/filters.ts:21](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/filters.ts#L21)
 
-Returns the date of Presidents Day for the specified year.
+Filters the full holiday set for a given year using a predicate.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `year` | `number` | The year for which to calculate Presidents Day. |
+| `year` | `number` | The year for which to retrieve and filter holidays. |
+| `predicate` | (`holiday`) => `boolean` | Function applied to each holiday entry to determine inclusion. |
 
-#### Returns
+##### Returns
 
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+[`HolidayList`](#holidaylist)
 
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Presidents Day in the specified year.
+A [HolidayList](#holidaylist) containing only matching holidays.
 
-#### Remarks
+##### Remarks
 
-In the United States, Presidents Day is observed on the third Monday of February.
+This function evaluates the complete [Holidays](#holidays) object returned by
+[getHolidays](#getholidays) and constructs a [HolidayList](#holidaylist) containing only
+entries that satisfy the provided predicate.
+
+The resulting object preserves the original holiday keys but reduces each
+entry to its date value.
 
 ***
 
-### getPrevOccurrence()
+#### getFirstOccurrence()
 
 ```ts
-function getPrevOccurrence(date, dayOfWeekIndex): Date;
+function getFirstOccurrence(date, dayOfWeekIndex): Date;
 ```
 
-Defined in: [utils/getters.ts:58](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L58)
+Defined in: [utils/getters.ts:21](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L21)
 
-Returns the previous occurrence of a given weekday relative to a date.
+Returns the first occurrence of a given weekday within the month of the provided date.
 
-#### Parameters
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Any date within the target month. |
+| `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the first occurrence of the weekday in that month.
+
+##### Remarks
+
+This works by normalizing the date to the first day of its month, then finding the
+next occurrence of the specified weekday.
+
+***
+
+#### getLastOfMonth()
+
+```ts
+function getLastOfMonth(date, dayOfWeekIndex): Date;
+```
+
+Defined in: [utils/getters.ts:90](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L90)
+
+Returns the last occurrence of a given weekday within the month of the provided date.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Any date within the target month. |
+| `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the last occurrence of the weekday in the month.
+
+##### Remarks
+
+This is computed by starting at the last day of the month and walking backwards
+to the requested weekday.
+
+***
+
+#### getNextOccurrence()
+
+```ts
+function getNextOccurrence(date, dayOfWeekIndex): Date;
+```
+
+Defined in: [utils/getters.ts:38](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L38)
+
+Returns the next occurrence of a given weekday relative to a date.
+
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Starting date. |
 | `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
 
-#### Returns
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the next occurrence of the weekday.
+
+##### Remarks
+
+If the provided date already matches the target weekday, it is returned unchanged.
+Otherwise, the function advances forward to the next matching weekday.
+
+***
+
+#### getPrevOccurrence()
+
+```ts
+function getPrevOccurrence(date, dayOfWeekIndex): Date;
+```
+
+Defined in: [utils/getters.ts:64](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/getters.ts#L64)
+
+Returns the previous occurrence of a given weekday relative to a date.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | Starting date. |
+| `dayOfWeekIndex` | `number` | Weekday index (0 = Sunday, 6 = Saturday). |
+
+##### Returns
 
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing the previous occurrence of the weekday.
 
-#### Remarks
+##### Remarks
 
 If the provided date already matches the target weekday, it is returned unchanged.
 Otherwise, the function moves backward to the previous matching weekday.
 
 ***
 
-### getThanksgiving()
-
-```ts
-function getThanksgiving(year): Date;
-```
-
-Defined in: [holidays/getThanksgiving.ts:13](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getThanksgiving.ts#L13)
-
-Returns the date of Thanksgiving for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to calculate Thanksgiving. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Thanksgiving in the specified year.
-
-#### Remarks
-
-In the United States, Thanksgiving is observed on the fourth Thursday of November.
-
-***
-
-### getValentinesDay()
-
-```ts
-function getValentinesDay(year): Date;
-```
-
-Defined in: [holidays/getValentinesDay.ts:10](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getValentinesDay.ts#L10)
-
-Returns the date of Valentine's Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to obtain Valentine's Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing February 14 of the specified year.
-
-#### Remarks
-
-Valentine's Day is observed annually on February 14.
-
-***
-
-### getVeteransDay()
-
-```ts
-function getVeteransDay(year): Date;
-```
-
-Defined in: [holidays/getVeteransDay.ts:10](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getVeteransDay.ts#L10)
-
-Returns the date of Veterans Day for the specified year.
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `year` | `number` | The year for which to obtain Veterans Day. |
-
-#### Returns
-
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-
-A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing November 11 of the specified year.
-
-#### Remarks
-
-Veterans Day is observed annually on November 11 in the United States.
-
-***
-
-### isBankHoliday()
+#### isBankHoliday()
 
 ```ts
 function isBankHoliday(date): boolean;
 ```
 
-Defined in: [utils/isIn.ts:56](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L56)
+Defined in: [utils/isIn.ts:64](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L64)
 
 Checks whether a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is a bank holiday.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | The [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) to evaluate. |
 
-#### Returns
+##### Returns
 
 `boolean`
 
@@ -948,23 +947,23 @@ Checks whether a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ***
 
-### isFederalHoliday()
+#### isFederalHoliday()
 
 ```ts
 function isFederalHoliday(date): boolean;
 ```
 
-Defined in: [utils/isIn.ts:46](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L46)
+Defined in: [utils/isIn.ts:52](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L52)
 
 Checks whether a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is a federal holiday.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | The [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) to evaluate. |
 
-#### Returns
+##### Returns
 
 `boolean`
 
@@ -972,23 +971,23 @@ Checks whether a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ***
 
-### isHoliday()
+#### isHoliday()
 
 ```ts
 function isHoliday(date): boolean;
 ```
 
-Defined in: [utils/isIn.ts:36](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L36)
+Defined in: [utils/isIn.ts:40](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L40)
 
 Checks whether a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is any recognized holiday.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | The [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) to evaluate. |
 
-#### Returns
+##### Returns
 
 `boolean`
 
@@ -996,30 +995,30 @@ Checks whether a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ***
 
-### isInHolidayList()
+#### isInHolidayList()
 
 ```ts
 function isInHolidayList(date, getHolidayList): boolean;
 ```
 
-Defined in: [utils/isIn.ts:19](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L19)
+Defined in: [utils/isIn.ts:21](https://github.com/nktnet1/date-fns-holidays/blob/main/src/utils/isIn.ts#L21)
 
 Determines whether a given [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) exists within a [HolidayList](#holidaylist) for its year.
 
-#### Parameters
+##### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `date` | [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | The [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) to evaluate. |
 | `getHolidayList` | (`year`) => [`HolidayList`](#holidaylist) | Function that returns a [HolidayList](#holidaylist) for a given year. |
 
-#### Returns
+##### Returns
 
 `boolean`
 
 `true` if the [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) matches any entry in the holiday list; otherwise `false`.
 
-#### Remarks
+##### Remarks
 
 The function resolves the appropriate holiday list for the year of the provided
 [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), then checks whether any holiday in that list matches the given date

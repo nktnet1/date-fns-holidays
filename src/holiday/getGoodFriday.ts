@@ -4,6 +4,8 @@ import { getEaster } from "./getEaster";
 /**
  * Calculates the date of Good Friday for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Good Friday is observed two days before Easter Sunday and commemorates the
  * crucifixion of Jesus Christ in Christian tradition.

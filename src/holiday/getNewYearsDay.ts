@@ -1,6 +1,8 @@
 /**
  * Returns the date of New Year's Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * New Year's Day is observed annually on January 1.
  *

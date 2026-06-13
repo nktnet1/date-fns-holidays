@@ -4,6 +4,8 @@ import { getFirstOccurrence } from "../utils/getters";
 /**
  * Calculates the date of Father's Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * In the United States and many other countries, Father's Day is observed on
  * the third Sunday of June.

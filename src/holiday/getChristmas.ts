@@ -1,6 +1,8 @@
 /**
  * Returns the date of Christmas Day for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Christmas Day is observed annually on December 25.
  *

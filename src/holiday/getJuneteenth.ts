@@ -1,6 +1,8 @@
 /**
  * Returns the date of Juneteenth for the specified year.
  *
+ * @category Holiday
+ *
  * @remarks
  * Juneteenth National Independence Day is observed in the United States on June 19.
  * It became a federal holiday in 2021.

@@ -15,7 +15,10 @@ The API will be the same as the original project, with the primary focus being b
   * [Holidays](#holidays)
 * [Functions](#functions)
   * [Holiday](#holiday-1)
+    * [getBlackFriday()](#getblackfriday)
+    * [getBoxingDay()](#getboxingday)
     * [getChristmas()](#getchristmas)
+    * [getChristmasEve()](#getchristmaseve)
     * [getColumbusDay()](#getcolumbusday)
     * [getEaster()](#geteaster)
     * [getFathersDay()](#getfathersday)
@@ -30,6 +33,7 @@ The API will be the same as the original project, with the primary focus being b
     * [getNewYearsDay()](#getnewyearsday)
     * [getNewYearsEve()](#getnewyearseve)
     * [getPresidentsDay()](#getpresidentsday)
+    * [getStPatricksDay()](#getstpatricksday)
     * [getThanksgiving()](#getthanksgiving)
     * [getValentinesDay()](#getvalentinesday)
     * [getVeteransDay()](#getveteransday)
@@ -61,24 +65,28 @@ npm i date-fns-holidays date-fns
 
 ```ts
 type Holiday = 
+  | "blackFriday"
+  | "boxingDay"
   | "christmas"
-  | "easter"
-  | "halloween"
-  | "valentinesDay"
-  | "mothersDay"
+  | "christmasEve"
   | "columbusDay"
-  | "independenceDay"
-  | "presidentsDay"
-  | "laborDay"
-  | "veteransDay"
-  | "thanksgiving"
-  | "newYearsEve"
-  | "martinLutherKingJrDay"
-  | "newYearsDay"
+  | "easter"
   | "fathersDay"
-  | "memorialDay"
   | "goodFriday"
-  | "juneteenth";
+  | "halloween"
+  | "independenceDay"
+  | "juneteenth"
+  | "laborDay"
+  | "martinLutherKingJrDay"
+  | "memorialDay"
+  | "mothersDay"
+  | "newYearsDay"
+  | "newYearsEve"
+  | "presidentsDay"
+  | "stPatricksDay"
+  | "thanksgiving"
+  | "valentinesDay"
+  | "veteransDay";
 ```
 
 Defined in: [types/index.ts:6](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L6)
@@ -97,7 +105,7 @@ type HolidayList = Record<string, {
 }>;
 ```
 
-Defined in: [types/index.ts:32](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L32)
+Defined in: [types/index.ts:36](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L36)
 
 Mapping of holiday names to their computed date values.
 
@@ -112,7 +120,7 @@ only the date is relevant.
 type Holidays = { [K in Holiday]: { bankHoliday: boolean; date: Date; federal: boolean } };
 ```
 
-Defined in: [types/index.ts:42](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L42)
+Defined in: [types/index.ts:46](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L46)
 
 Complete set of holidays returned by [getHolidays](#getholidays).
 
@@ -125,6 +133,71 @@ Each entry includes:
 ## Functions
 
 ### Holiday
+
+#### getBlackFriday()
+
+```ts
+function getBlackFriday(year): Date;
+```
+
+Defined in: [holiday/getBlackFriday.ts:18](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getBlackFriday.ts#L18)
+
+Returns the date of Black Friday for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Black Friday. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing Black Friday of the specified year.
+
+##### Remarks
+
+Black Friday is observed annually on the day after Thanksgiving Day
+in the United States (the fourth Friday of November).
+
+The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
+
+***
+
+#### getBoxingDay()
+
+```ts
+function getBoxingDay(year): Date;
+```
+
+Defined in: [holiday/getBoxingDay.ts:18](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getBoxingDay.ts#L18)
+
+Returns the date of Boxing Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Boxing Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 26 of the specified year.
+
+##### Remarks
+
+Boxing Day is observed on December 26 in several Commonwealth countries,
+including the UK, Canada, Australia, and New Zealand.
+
+It is not a U.S. federal holiday, but it is a fixed calendar date
+immediately following Christmas Day.
+
+The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
+
+***
 
 #### getChristmas()
 
@@ -151,6 +224,36 @@ A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Globa
 ##### Remarks
 
 Christmas Day is observed annually on December 25.
+
+The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
+
+***
+
+#### getChristmasEve()
+
+```ts
+function getChristmasEve(year): Date;
+```
+
+Defined in: [holiday/getChristmasEve.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmasEve.ts#L14)
+
+Returns the date of Christmas Eve for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Christmas Eve. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 24 of the specified year.
+
+##### Remarks
+
+Christmas Eve is observed annually on December 24.
 
 The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
 
@@ -561,6 +664,39 @@ In the United States, Presidents Day is observed on the third Monday of February
 
 ***
 
+#### getStPatricksDay()
+
+```ts
+function getStPatricksDay(year): Date;
+```
+
+Defined in: [holiday/getStPatricksDay.ts:17](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getStPatricksDay.ts#L17)
+
+Returns the date of St. Patrick's Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain St. Patrick's Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing March 17 of the specified year.
+
+##### Remarks
+
+St. Patrick's Day is observed annually on March 17.
+
+It is not a U.S. federal holiday, but is widely celebrated culturally,
+particularly in the United States and Ireland.
+
+The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
+
+***
+
 #### getThanksgiving()
 
 ```ts
@@ -707,7 +843,7 @@ Only holidays marked as federal holidays are included in the returned list.
 function getHolidays(year): Holidays;
 ```
 
-Defined in: [holidays/getHolidays.ts:38](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L38)
+Defined in: [holidays/getHolidays.ts:42](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L42)
 
 Returns the complete set of supported holidays for the specified year.
 

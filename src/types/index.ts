@@ -4,24 +4,28 @@
  * Each value corresponds to a key in {@link Holidays}.
  */
 export type Holiday =
+  | "blackFriday"
+  | "boxingDay"
   | "christmas"
-  | "easter"
-  | "halloween"
-  | "valentinesDay"
-  | "mothersDay"
+  | "christmasEve"
   | "columbusDay"
-  | "independenceDay"
-  | "presidentsDay"
-  | "laborDay"
-  | "veteransDay"
-  | "thanksgiving"
-  | "newYearsEve"
-  | "martinLutherKingJrDay"
-  | "newYearsDay"
+  | "easter"
   | "fathersDay"
-  | "memorialDay"
   | "goodFriday"
-  | "juneteenth";
+  | "halloween"
+  | "independenceDay"
+  | "juneteenth"
+  | "laborDay"
+  | "martinLutherKingJrDay"
+  | "memorialDay"
+  | "mothersDay"
+  | "newYearsDay"
+  | "newYearsEve"
+  | "presidentsDay"
+  | "stPatricksDay"
+  | "thanksgiving"
+  | "valentinesDay"
+  | "veteransDay";
 
 /**
  * Mapping of holiday names to their computed date values.

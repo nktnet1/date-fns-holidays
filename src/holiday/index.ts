@@ -1,5 +1,7 @@
-export { getHolidays } from "../holidays/getHolidays";
+export { getBlackFriday } from "./getBlackFriday";
+export { getBoxingDay } from "./getBoxingDay";
 export { getChristmas } from "./getChristmas";
+export { getChristmasEve } from "./getChristmasEve";
 export { getColumbusDay } from "./getColumbusDay";
 export { getEaster } from "./getEaster";
 export { getFathersDay } from "./getFathersDay";
@@ -14,6 +16,7 @@ export { getMothersDay } from "./getMothersDay";
 export { getNewYearsDay } from "./getNewYearsDay";
 export { getNewYearsEve } from "./getNewYearsEve";
 export { getPresidentsDay } from "./getPresidentsDay";
+export { getStPatricksDay } from "./getStPatricksDay";
 export { getThanksgiving } from "./getThanksgiving";
 export { getValentinesDay } from "./getValentinesDay";
 export { getVeteransDay } from "./getVeteransDay";

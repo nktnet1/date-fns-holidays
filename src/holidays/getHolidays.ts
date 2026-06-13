@@ -1,4 +1,6 @@
+import { getBlackFriday } from "../holiday/getBlackFriday";
 import { getChristmas } from "../holiday/getChristmas";
+import { getChristmasEve } from "../holiday/getChristmasEve";
 import { getColumbusDay } from "../holiday/getColumbusDay";
 import { getEaster } from "../holiday/getEaster";
 import { getFathersDay } from "../holiday/getFathersDay";
@@ -117,10 +119,20 @@ export function getHolidays(year: number): Holidays {
       bankHoliday: true,
       federal: true,
     },
+    blackFriday: {
+      date: getBlackFriday(year),
+      bankHoliday: false,
+      federal: false,
+    },
     christmas: {
       date: getChristmas(year),
       bankHoliday: true,
       federal: true,
+    },
+    christmasEve: {
+      date: getChristmasEve(year),
+      bankHoliday: false,
+      federal: false,
     },
     newYearsEve: {
       date: getNewYearsEve(year),

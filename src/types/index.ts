@@ -4,7 +4,9 @@
  * Each value corresponds to a key in {@link Holidays}.
  */
 export type Holiday =
+  | "blackFriday"
   | "christmas"
+  | "christmasEve"
   | "easter"
   | "halloween"
   | "valentinesDay"

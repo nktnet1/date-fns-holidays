@@ -1,5 +1,6 @@
-export { getHolidays } from "../holidays/getHolidays";
+export { getBlackFriday } from "./getBlackFriday";
 export { getChristmas } from "./getChristmas";
+export { getChristmasEve } from "./getChristmasEve";
 export { getColumbusDay } from "./getColumbusDay";
 export { getEaster } from "./getEaster";
 export { getFathersDay } from "./getFathersDay";

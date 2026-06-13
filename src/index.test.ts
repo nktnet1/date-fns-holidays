@@ -3,7 +3,9 @@ import { describe, expect, it } from "vitest";
 
 import {
   getBankHolidays,
+  getBlackFriday,
   getChristmas,
+  getChristmasEve,
   getColumbusDay,
   getEaster,
   getFathersDay,
@@ -149,12 +151,30 @@ describe("getJuneteenth", () => {
   });
 });
 
+describe("getBlackFriday", () => {
+  it("returns correct date", () => {
+    expect(format(getBlackFriday(2020), dateFormat)).toEqual("11-27-2020");
+    expect(format(getBlackFriday(2021), dateFormat)).toEqual("11-26-2021");
+    expect(format(getBlackFriday(2022), dateFormat)).toEqual("11-25-2022");
+    expect(format(getBlackFriday(2023), dateFormat)).toEqual("11-24-2023");
+  });
+});
+
 describe("getChristmas", () => {
   it("returns correct date", () => {
     expect(format(getChristmas(2020), dateFormat)).toEqual("12-25-2020");
     expect(format(getChristmas(2021), dateFormat)).toEqual("12-25-2021");
     expect(format(getChristmas(2022), dateFormat)).toEqual("12-25-2022");
     expect(format(getChristmas(2023), dateFormat)).toEqual("12-25-2023");
+  });
+});
+
+describe("getChristmasEve", () => {
+  it("returns correct date", () => {
+    expect(format(getChristmasEve(2020), dateFormat)).toEqual("12-24-2020");
+    expect(format(getChristmasEve(2021), dateFormat)).toEqual("12-24-2021");
+    expect(format(getChristmasEve(2022), dateFormat)).toEqual("12-24-2022");
+    expect(format(getChristmasEve(2023), dateFormat)).toEqual("12-24-2023");
   });
 });
 

@@ -1,4 +1,4 @@
-import { getHolidays } from "../holiday";
+import { getHolidays } from "../holidays";
 import type { Holiday, HolidayList, Holidays } from "../types";
 
 /**

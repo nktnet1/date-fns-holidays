@@ -1,4 +1,5 @@
 import { getBlackFriday } from "../holiday/getBlackFriday";
+import { getBoxingDay } from "../holiday/getBoxingDay";
 import { getChristmas } from "../holiday/getChristmas";
 import { getChristmasEve } from "../holiday/getChristmasEve";
 import { getColumbusDay } from "../holiday/getColumbusDay";
@@ -39,88 +40,13 @@ import type { Holidays } from "../types";
  */
 export function getHolidays(year: number): Holidays {
   return {
-    newYearsDay: {
-      date: getNewYearsDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    martinLutherKingJrDay: {
-      date: getMartinLutherKingJrDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    valentinesDay: {
-      date: getValentinesDay(year),
-      bankHoliday: false,
-      federal: false,
-    },
-    juneteenth: {
-      date: getJuneteenth(year),
-      bankHoliday: !(year < 2022),
-      federal: true,
-    },
-    easter: {
-      date: getEaster(year),
-      bankHoliday: false,
-      federal: false,
-    },
-    presidentsDay: {
-      date: getPresidentsDay(year),
-      bankHoliday: true,
-      federal: false,
-    },
-    memorialDay: {
-      date: getMemorialDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    independenceDay: {
-      date: getIndependenceDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    laborDay: {
-      date: getLaborDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    goodFriday: {
-      date: getGoodFriday(year),
-      bankHoliday: false,
-      federal: false,
-    },
-    mothersDay: {
-      date: getMothersDay(year),
-      bankHoliday: false,
-      federal: false,
-    },
-    columbusDay: {
-      date: getColumbusDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    halloween: {
-      date: getHalloween(year),
-      bankHoliday: false,
-      federal: false,
-    },
-    fathersDay: {
-      date: getFathersDay(year),
-      bankHoliday: false,
-      federal: false,
-    },
-    veteransDay: {
-      date: getVeteransDay(year),
-      bankHoliday: true,
-      federal: true,
-    },
-    thanksgiving: {
-      date: getThanksgiving(year),
-      bankHoliday: true,
-      federal: true,
-    },
     blackFriday: {
       date: getBlackFriday(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    boxingDay: {
+      date: getBoxingDay(year),
       bankHoliday: false,
       federal: false,
     },
@@ -134,10 +60,90 @@ export function getHolidays(year: number): Holidays {
       bankHoliday: false,
       federal: false,
     },
+    columbusDay: {
+      date: getColumbusDay(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    easter: {
+      date: getEaster(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    fathersDay: {
+      date: getFathersDay(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    goodFriday: {
+      date: getGoodFriday(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    halloween: {
+      date: getHalloween(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    independenceDay: {
+      date: getIndependenceDay(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    juneteenth: {
+      date: getJuneteenth(year),
+      bankHoliday: !(year < 2022),
+      federal: true,
+    },
+    laborDay: {
+      date: getLaborDay(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    martinLutherKingJrDay: {
+      date: getMartinLutherKingJrDay(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    memorialDay: {
+      date: getMemorialDay(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    mothersDay: {
+      date: getMothersDay(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    newYearsDay: {
+      date: getNewYearsDay(year),
+      bankHoliday: true,
+      federal: true,
+    },
     newYearsEve: {
       date: getNewYearsEve(year),
       bankHoliday: false,
       federal: false,
+    },
+    presidentsDay: {
+      date: getPresidentsDay(year),
+      bankHoliday: true,
+      federal: false,
+    },
+    thanksgiving: {
+      date: getThanksgiving(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    valentinesDay: {
+      date: getValentinesDay(year),
+      bankHoliday: false,
+      federal: false,
+    },
+    veteransDay: {
+      date: getVeteransDay(year),
+      bankHoliday: true,
+      federal: true,
     },
   };
 }

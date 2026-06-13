@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   getBankHolidays,
   getBlackFriday,
+  getBoxingDay,
   getChristmas,
   getChristmasEve,
   getColumbusDay,
@@ -12,6 +13,7 @@ import {
   getFederalHolidays,
   getGoodFriday,
   getHalloween,
+  getHolidays,
   getIndependenceDay,
   getJuneteenth,
   getLaborDay,
@@ -157,6 +159,15 @@ describe("getBlackFriday", () => {
     expect(format(getBlackFriday(2021), dateFormat)).toEqual("11-26-2021");
     expect(format(getBlackFriday(2022), dateFormat)).toEqual("11-25-2022");
     expect(format(getBlackFriday(2023), dateFormat)).toEqual("11-24-2023");
+  });
+});
+
+describe("getBoxingDay", () => {
+  it("returns correct date", () => {
+    expect(format(getBoxingDay(2020), dateFormat)).toEqual("12-26-2020");
+    expect(format(getBoxingDay(2021), dateFormat)).toEqual("12-26-2021");
+    expect(format(getBoxingDay(2022), dateFormat)).toEqual("12-26-2022");
+    expect(format(getBoxingDay(2023), dateFormat)).toEqual("12-26-2023");
   });
 });
 
@@ -331,5 +342,58 @@ describe("getGoodFriday", () => {
     expect(format(getGoodFriday(2021), dateFormat)).toEqual("04-02-2021");
     expect(format(getGoodFriday(2022), dateFormat)).toEqual("04-15-2022");
     expect(format(getGoodFriday(2023), dateFormat)).toEqual("04-07-2023");
+  });
+});
+
+describe("getHolidays", () => {
+  it("returns all expected holiday keys", () => {
+    const holidays = getHolidays(2024);
+
+    expect(Object.keys(holidays)).toEqual([
+      "blackFriday",
+      "boxingDay",
+      "christmas",
+      "christmasEve",
+      "columbusDay",
+      "easter",
+      "fathersDay",
+      "goodFriday",
+      "halloween",
+      "independenceDay",
+      "juneteenth",
+      "laborDay",
+      "martinLutherKingJrDay",
+      "memorialDay",
+      "mothersDay",
+      "newYearsDay",
+      "newYearsEve",
+      "presidentsDay",
+      "thanksgiving",
+      "valentinesDay",
+      "veteransDay",
+    ]);
+  });
+
+  it("returns correct sample holiday dates", () => {
+    const holidays = getHolidays(2024);
+
+    expect(format(holidays.newYearsDay.date, dateFormat)).toEqual("01-01-2024");
+    expect(format(holidays.christmas.date, dateFormat)).toEqual("12-25-2024");
+    expect(format(holidays.boxingDay.date, dateFormat)).toEqual("12-26-2024");
+    expect(format(holidays.independenceDay.date, dateFormat)).toEqual(
+      "07-04-2024",
+    );
+  });
+
+  it("includes federal and bank flags for key holidays", () => {
+    const holidays = getHolidays(2024);
+
+    expect(holidays.christmas.federal).toBe(true);
+    expect(holidays.christmas.bankHoliday).toBe(true);
+
+    expect(holidays.valentinesDay.federal).toBe(false);
+    expect(holidays.valentinesDay.bankHoliday).toBe(false);
+
+    expect(holidays.juneteenth.federal).toBe(true);
   });
 });

@@ -5,25 +5,26 @@
  */
 export type Holiday =
   | "blackFriday"
+  | "boxingDay"
   | "christmas"
   | "christmasEve"
-  | "easter"
-  | "halloween"
-  | "valentinesDay"
-  | "mothersDay"
   | "columbusDay"
-  | "independenceDay"
-  | "presidentsDay"
-  | "laborDay"
-  | "veteransDay"
-  | "thanksgiving"
-  | "newYearsEve"
-  | "martinLutherKingJrDay"
-  | "newYearsDay"
+  | "easter"
   | "fathersDay"
-  | "memorialDay"
   | "goodFriday"
-  | "juneteenth";
+  | "halloween"
+  | "independenceDay"
+  | "juneteenth"
+  | "laborDay"
+  | "martinLutherKingJrDay"
+  | "memorialDay"
+  | "mothersDay"
+  | "newYearsDay"
+  | "newYearsEve"
+  | "presidentsDay"
+  | "thanksgiving"
+  | "valentinesDay"
+  | "veteransDay";
 
 /**
  * Mapping of holiday names to their computed date values.

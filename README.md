@@ -207,9 +207,7 @@ The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 function getChristmas(year): Date;
 ```
 
-Defined in: [holiday/getChristmas.ts:18](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmas.ts#L18)
-
-Returns the date of Christmas Day for the specified year.
+Defined in: [holiday/getChristmas.ts:11](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmas.ts#L11)
 
 ##### Parameters
 
@@ -222,12 +220,6 @@ Returns the date of Christmas Day for the specified year.
 [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 25 of the specified year.
-
-##### Remarks
-
-Christmas Day is observed annually on December 25.
-
-The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
 
 ##### Deprecated
 

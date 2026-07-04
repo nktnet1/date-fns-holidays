@@ -1,5 +1,3 @@
-import { getChristmasDay } from "./getChristmasDay";
-
 /**
  * Returns the date of Christmas Day for the specified year.
  *
@@ -10,11 +8,9 @@ import { getChristmasDay } from "./getChristmasDay";
  *
  * The returned {@link Date} is created in the local time zone.
  *
- * @deprecated Use {@link getChristmasDay} instead.
- *
  * @param year - The year for which to obtain Christmas Day.
  * @returns A {@link Date} representing December 25 of the specified year.
  */
-export function getChristmas(year: number) {
-  return getChristmasDay(year);
+export function getChristmasDay(year: number) {
+  return new Date(year, 11, 25);
 }

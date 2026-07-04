@@ -6,7 +6,8 @@
 export type Holiday =
   | "blackFriday"
   | "boxingDay"
-  | "christmas"
+  | "christmas" /* @deprecated */
+  | "christmasDay"
   | "christmasEve"
   | "columbusDay"
   | "easter"

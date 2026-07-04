@@ -17,7 +17,8 @@ The API will be the same as the original project, with the primary focus being b
   * [Holiday](#holiday-1)
     * [getBlackFriday()](#getblackfriday)
     * [getBoxingDay()](#getboxingday)
-    * [getChristmas()](#getchristmas)
+    * [~~getChristmas()~~](#getchristmas)
+    * [getChristmasDay()](#getchristmasday)
     * [getChristmasEve()](#getchristmaseve)
     * [getColumbusDay()](#getcolumbusday)
     * [getEaster()](#geteaster)
@@ -68,6 +69,7 @@ type Holiday =
   | "blackFriday"
   | "boxingDay"
   | "christmas"
+  | "christmasDay"
   | "christmasEve"
   | "columbusDay"
   | "easter"
@@ -105,7 +107,7 @@ type HolidayList = Record<string, {
 }>;
 ```
 
-Defined in: [types/index.ts:36](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L36)
+Defined in: [types/index.ts:37](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L37)
 
 Mapping of holiday names to their computed date values.
 
@@ -120,7 +122,7 @@ only the date is relevant.
 type Holidays = { [K in Holiday]: { bankHoliday: boolean; date: Date; federal: boolean } };
 ```
 
-Defined in: [types/index.ts:46](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L46)
+Defined in: [types/index.ts:47](https://github.com/nktnet1/date-fns-holidays/blob/main/src/types/index.ts#L47)
 
 Complete set of holidays returned by [getHolidays](#getholidays).
 
@@ -199,13 +201,47 @@ The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ***
 
-#### getChristmas()
+#### ~~getChristmas()~~
 
 ```ts
 function getChristmas(year): Date;
 ```
 
-Defined in: [holiday/getChristmas.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmas.ts#L14)
+Defined in: [holiday/getChristmas.ts:18](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmas.ts#L18)
+
+Returns the date of Christmas Day for the specified year.
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `year` | `number` | The year for which to obtain Christmas Day. |
+
+##### Returns
+
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+A [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) representing December 25 of the specified year.
+
+##### Remarks
+
+Christmas Day is observed annually on December 25.
+
+The returned [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) is created in the local time zone.
+
+##### Deprecated
+
+Use [getChristmasDay](#getchristmasday) instead.
+
+***
+
+#### getChristmasDay()
+
+```ts
+function getChristmasDay(year): Date;
+```
+
+Defined in: [holiday/getChristmasDay.ts:14](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holiday/getChristmasDay.ts#L14)
 
 Returns the date of Christmas Day for the specified year.
 
@@ -843,7 +879,7 @@ Only holidays marked as federal holidays are included in the returned list.
 function getHolidays(year): Holidays;
 ```
 
-Defined in: [holidays/getHolidays.ts:42](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L42)
+Defined in: [holidays/getHolidays.ts:43](https://github.com/nktnet1/date-fns-holidays/blob/main/src/holidays/getHolidays.ts#L43)
 
 Returns the complete set of supported holidays for the specified year.
 

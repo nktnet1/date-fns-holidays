@@ -1,6 +1,7 @@
 import { getBlackFriday } from "../holiday/getBlackFriday";
 import { getBoxingDay } from "../holiday/getBoxingDay";
 import { getChristmas } from "../holiday/getChristmas";
+import { getChristmasDay } from "../holiday/getChristmasDay";
 import { getChristmasEve } from "../holiday/getChristmasEve";
 import { getColumbusDay } from "../holiday/getColumbusDay";
 import { getEaster } from "../holiday/getEaster";
@@ -51,8 +52,16 @@ export function getHolidays(year: number): Holidays {
       bankHoliday: false,
       federal: false,
     },
+    /**
+     * @deprecated use christmasDay instead
+     */
     christmas: {
       date: getChristmas(year),
+      bankHoliday: true,
+      federal: true,
+    },
+    christmasDay: {
+      date: getChristmasDay(year),
       bankHoliday: true,
       federal: true,
     },
